@@ -1,0 +1,25 @@
+# Maven
+target/
+
+# Allure
+.allure/
+allure-results/
+allure-report/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs & local artifacts
+*.log
+*.apk
+*.ipa
+*.app

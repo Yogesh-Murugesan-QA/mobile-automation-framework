@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<!-- Smoke subset: the fastest high-value checks, selected by TestNG method name. -->
+<suite name="SmokeSuite" verbose="1">
+    <test name="CounterSmoke">
+        <classes>
+            <class name="com.yogesh.automation.tests.CounterTest">
+                <methods>
+                    <include name="counterStartsAtZero"/>
+                    <include name="singleIncrement"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

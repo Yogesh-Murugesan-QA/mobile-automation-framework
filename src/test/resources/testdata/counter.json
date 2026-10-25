@@ -1,0 +1,6 @@
+[
+  { "taps": 1, "expected": 1 },
+  { "taps": 3, "expected": 3 },
+  { "taps": 5, "expected": 5 },
+  { "taps": 10, "expected": 10 }
+]

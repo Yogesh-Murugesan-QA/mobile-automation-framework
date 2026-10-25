@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Compile & validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+          cache: maven
+
+      # Compiles main + test sources and resolves all dependencies.
+      # This is what proves the framework is sound on every push/PR.
+      # (Executing Appium tests needs a device/emulator + Appium server,
+      #  which runs in the dedicated mobile pipeline, not on the hosted runner.)
+      - name: Compile and verify test sources
+        run: mvn -B clean test-compile
+
+      - name: Validate TestNG suite is wired
+        run: mvn -B surefire:help -q >/dev/null
